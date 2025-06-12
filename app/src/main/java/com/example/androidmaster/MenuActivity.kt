@@ -1,25 +1,20 @@
-package com.example.androidmaster.firstapp
+package com.example.androidmaster
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.Telephony.Mms.Intents
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.androidmaster.R
+import com.example.androidmaster.registrarpedidos.RegPedidosActivity
 
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
         val btn_RgPedidos = findViewById<AppCompatButton>(R.id.btn_RgPedidos)
-        btn_RgPedidos.setOnClickListener {}
+        btn_RgPedidos.setOnClickListener { navigateToRgPedidos() }
     }
-
-    fun navigateToRgPedidos(){
-        val intent = Intent(this, FirstAppActivity::class.java)
+    private fun navigateToRgPedidos(){
+        val intent = Intent(this, RegPedidosActivity::class.java)
         startActivity(intent)
     }
 }

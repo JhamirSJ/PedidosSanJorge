@@ -13,12 +13,16 @@
         android:theme="@style/Theme.AndroidMaster"
         tools:targetApi="31">
         <activity
-            android:name=".firstapp.MenuActivity"
-            android:exported="true">
-
-        </activity>
+            android:name=".seleccionarcliente.SelecClienteActivity"
+            android:exported="false" />
         <activity
-            android:name=".firstapp.FirstAppActivity"
+            android:name=".SelecClienteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".registrarpedidos.RegPedidosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".firstapp.FirstAppActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
