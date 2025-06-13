@@ -19,8 +19,6 @@ class RegPedidosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_reg_pedidos)
-        val btnSelecCliente = findViewById<AppCompatButton>(R.id.btnSelecCliente)
-        btn_RgPedidos.setOnClickListener { navigateToRgPedidos() }
 
         // Obtener el TextView
         val tvFecha: TextView = findViewById(R.id.tvFechaActual)
@@ -31,8 +29,5 @@ class RegPedidosActivity : AppCompatActivity() {
         // Mostrarla en el TextView
         tvFecha.text = "Fecha: $fechaActual"
     }
-    private fun navigateToSelecCliente(){
-        val intent = Intent(this, RegPedidosActivity::class.java)
-        startActivity(intent)
-    }
+
 }

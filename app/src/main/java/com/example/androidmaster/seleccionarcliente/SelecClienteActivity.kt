@@ -11,6 +11,6 @@ class SelecClienteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_selec_cliente2)
+        setContentView(R.layout.activity_selec_cliente)
     }
 }
