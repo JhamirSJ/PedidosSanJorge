@@ -10,8 +10,8 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-        val btn_RgPedidos = findViewById<AppCompatButton>(R.id.btn_RgPedidos)
-        btn_RgPedidos.setOnClickListener { navigateToRgPedidos() }
+        val btnRgPedidos = findViewById<AppCompatButton>(R.id.btnRgPedidos)
+        btnRgPedidos.setOnClickListener { navigateToRgPedidos() }
     }
     private fun navigateToRgPedidos(){
         val intent = Intent(this, RegPedidosActivity::class.java)

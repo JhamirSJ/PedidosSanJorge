@@ -16,9 +16,6 @@
             android:name=".seleccionarcliente.SelecClienteActivity"
             android:exported="false" />
         <activity
-            android:name=".SelecClienteActivity"
-            android:exported="false" />
-        <activity
             android:name=".registrarpedidos.RegPedidosActivity"
             android:exported="false" />
         <activity
@@ -30,9 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".firstapp.FirstAppActivity"
-            android:exported="true" />
     </application>
 
 </manifest>
