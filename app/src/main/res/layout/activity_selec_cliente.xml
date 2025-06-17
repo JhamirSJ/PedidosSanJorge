@@ -7,41 +7,42 @@
     android:background="@color/white"
     tools:context=".seleccionarcliente.SelecClienteActivity">
 
+    <!-- Título -->
     <TextView
         android:id="@+id/tvSelecCliente"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
         android:text="Seleccionar Cliente"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/etBuscar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Campo de búsqueda -->
     <EditText
         android:id="@+id/etBuscar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:background="@android:drawable/editbox_background"
         android:drawableStart="@android:drawable/ic_menu_search"
         android:hint="Buscar cliente"
         android:imeOptions="actionSearch"
         android:inputType="text"
+        android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSelecCliente" />
 
-    <ListView
-        android:id="@+id/lvClientes"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvClientes"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="1dp"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -5,63 +5,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical"
     android:fitsSystemWindows="true"
     tools:context=".MenuActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/marca"
-        android:layout_width="match_parent"
+    <!-- Encabezado San Jorge -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clEncabezado"
+        android:layout_width="0dp"
         android:layout_height="130dp"
-        android:orientation="vertical"
-        app:cardBackgroundColor="@color/red_sj"
+        android:background="@color/red_sj"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="60dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/logo_sj_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvSJ"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/logo_sj_white" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="SAN JORGE"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="90dp"
-        android:orientation="vertical">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRgPedidos"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/red_sj"
-            android:text="Registrar Pedidos"
+        <TextView
+            android:id="@+id/tvSJ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="60dp"
+            android:text="SAN JORGE"
             android:textColor="@color/white"
+            android:textSize="30sp"
             android:textStyle="bold"
-            app:cornerRadius="8dp"
-            app:elevation="10dp" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivLogo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Botón(es) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRgPedidos"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="300dp"
+        android:backgroundTint="@color/red_sj"
+        android:text="Registrar Pedidos"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:cornerRadius="8dp"
+        app:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clEncabezado" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
