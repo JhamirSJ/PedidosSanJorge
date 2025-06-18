@@ -1,9 +1,10 @@
-package com.example.androidmaster
+package com.example.androidmaster.menu
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import com.example.androidmaster.R
 import com.example.androidmaster.registrarpedidos.RegPedidosActivity
 
 class MenuActivity : AppCompatActivity() {

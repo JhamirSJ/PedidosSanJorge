@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.androidmaster.R
 import com.example.androidmaster.seleccionarcliente.SelecClienteActivity
+import com.example.androidmaster.seleccionarproductos.SelecProductosActivity
 import com.google.android.material.button.MaterialButton
 import java.util.Date
 import java.util.Locale
@@ -17,7 +18,10 @@ class RegPedidosActivity : AppCompatActivity() {
         setContentView(R.layout.activity_reg_pedidos)
 
         val btnSelecCliente = findViewById<MaterialButton>(R.id.btnSelecCliente)
+        val btnSelecProductos = findViewById<MaterialButton>(R.id.btnSelecProductos)
+
         btnSelecCliente.setOnClickListener { navigateToSelecCliente() }
+        btnSelecProductos.setOnClickListener { navigateToSelecProductos() }
 
         // Obtener el TextView
         val tvFecha: TextView = findViewById(R.id.tvFechaActual)
@@ -34,6 +38,11 @@ class RegPedidosActivity : AppCompatActivity() {
     fun navigateToSelecCliente() {
         val intent = Intent(this, SelecClienteActivity::class.java)
         startActivityForResult(intent, SELECCIONAR_CLIENTE)
+    }
+
+    fun navigateToSelecProductos() {
+        val intent = Intent(this, SelecProductosActivity::class.java)
+        startActivity(intent)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".seleccionarcliente.SelecClienteActivity">
+    tools:context=".seleccionarproductos.SelecProductosActivity">
 
     <!-- Título -->
     <TextView
-        android:id="@+id/tvSelecCliente"
+        android:id="@+id/tvSelecProductos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="Seleccionar Cliente"
+        android:text="Productos"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"
         android:drawableEnd="@android:drawable/ic_menu_search"
-        android:hint=" Buscar cliente..."
+        android:hint=" Buscar producto..."
         android:inputType="text"
         android:minHeight="48dp"
         android:padding="10dp"
@@ -36,16 +36,17 @@
         android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSelecCliente" />
+        app:layout_constraintTop_toBottomOf="@id/tvSelecProductos" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvClientes"
+        android:id="@+id/rvProductos"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etBuscar" />
+        app:layout_constraintTop_toBottomOf="@id/etBuscar"
+        android:layout_marginBottom="60dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
