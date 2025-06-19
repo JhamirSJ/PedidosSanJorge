@@ -23,13 +23,9 @@ class RegPedidosActivity : AppCompatActivity() {
         btnSelecCliente.setOnClickListener { navigateToSelecCliente() }
         btnSelecProductos.setOnClickListener { navigateToSelecProductos() }
 
-        // Obtener el TextView
+        //Fecha Actual
         val tvFecha: TextView = findViewById(R.id.tvFechaActual)
-
-        // Obtener la fecha actual
         val fechaActual = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
-
-        // Mostrarla en el TextView
         tvFecha.text = "Fecha: $fechaActual"
     }
 
@@ -51,6 +47,7 @@ class RegPedidosActivity : AppCompatActivity() {
         if (requestCode == SELECCIONAR_CLIENTE && resultCode == RESULT_OK && data != null) {
             val codigo = data.getStringExtra("codigo")
             val nombre = data.getStringExtra("nombre")
+            val direccion = data.getStringExtra("direccion")
 
             val tvCodigo = findViewById<TextView>(R.id.tvCodigoSeleccionado)
             val tvNombre = findViewById<TextView>(R.id.tvNombreSeleccionado)
@@ -58,7 +55,7 @@ class RegPedidosActivity : AppCompatActivity() {
 
             tvCodigo.text = codigo
             tvNombre.text = nombre
-            tvDireccion.text = "Dirección de prueba" // o traerla desde el objeto si lo tienes
+            tvDireccion.text = direccion
         }
     }
 }

@@ -21,7 +21,6 @@
             nombre.text = producto.nombre
             cantidad.setText(producto.cantidad.toString())
 
-            // Para evitar múltiples listeners
             cantidad.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
                     val cantidadNueva = s.toString().toIntOrNull() ?: 0

@@ -27,7 +27,6 @@
             initInterface()
             obtenerClientesDB()
             initSearchBox()
-
         }
 
         private fun initComponent(){
@@ -42,6 +41,7 @@
                 val resultIntent = Intent().apply {
                     putExtra("codigo", cliente.codigo)
                     putExtra("nombre", cliente.nombre)
+                    putExtra("direccion", cliente.direccion)
                 }
                 setResult(RESULT_OK, resultIntent)
                 finish()
@@ -55,7 +55,6 @@
             clientesAdapter.actualizarLista(clientes)
         }
 
-
         private fun initSearchBox() {
             sbCliente.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
@@ -65,7 +64,6 @@
                     }
                     clientesAdapter.actualizarLista(filtrados)
                 }
-
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             })

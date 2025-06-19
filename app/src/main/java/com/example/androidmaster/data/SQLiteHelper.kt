@@ -29,19 +29,21 @@ class SQLiteHelper(private val context: Context) {
         }
     }
 
-    fun getReadableDatabase(): SQLiteDatabase {
+    private fun getReadableDatabase(): SQLiteDatabase {
         return SQLiteDatabase.openDatabase(dbPath, null, SQLiteDatabase.OPEN_READONLY)
     }
 
     fun obtenerClientes(): List<Cliente> {
         val lista = mutableListOf<Cliente>()
         val db = getReadableDatabase()
-        val cursor = db.rawQuery("SELECT altname, custentity_pe_document_number FROM customers", null)
+        val cursor = db.rawQuery(
+            "SELECT customers.altname, customers.custentity_pe_document_number, customeraddressbooks.label FROM customers JOIN customeraddressbooks ON customers.codid = customeraddressbooks.entity;", null)
 
         while (cursor.moveToNext()) {
             val nombre = cursor.getString(0)
-            val documento = cursor.getString(1)
-            lista.add(Cliente(nombre = nombre, codigo = documento))
+            val codigo = cursor.getString(1)
+            val direccion = cursor.getString(2)
+            lista.add(Cliente(nombre = nombre, codigo = codigo, direccion = direccion))
         }
 
         cursor.close()

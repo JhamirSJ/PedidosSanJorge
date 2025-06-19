@@ -40,7 +40,6 @@ class SelecProductosActivity : AppCompatActivity() {
         rvProductos.adapter = productoAdapter
     }
 
-
     private fun configurarBuscador() {
         etBuscar.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -50,14 +49,12 @@ class SelecProductosActivity : AppCompatActivity() {
                 }
                 productoAdapter.actualizarLista(filtrados)
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
     }
 
-    // Puedes agregar aquí un botón para confirmar el pedido, si lo deseas.
-    // Por ejemplo:
+    // Puedes agregar aquí un botón para confirmar el pedido.
     //private fun confirmarPedido() {
     //    val seleccionados = adapter.obtenerSeleccionados()
     //    if (seleccionados.isEmpty()) {
