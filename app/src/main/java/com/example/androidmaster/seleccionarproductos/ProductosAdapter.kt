@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidmaster.R
 
-class ProductoAdapter(
-    private var productos: List<Producto>
-) : RecyclerView.Adapter<ProductosViewHolder>() {
+class ProductosAdapter : RecyclerView.Adapter<ProductosViewHolder>() {
+
+    private var productosOriginales: MutableList<Producto> = mutableListOf()
+    private var productosVisibles: MutableList<Producto> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductosViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -16,17 +17,25 @@ class ProductoAdapter(
     }
 
     override fun onBindViewHolder(holder: ProductosViewHolder, position: Int) {
-        holder.bind(productos[position])
+        val producto = productosVisibles[position]
+        holder.bind(producto)
     }
 
-    override fun getItemCount(): Int = productos.size
+    override fun getItemCount(): Int = productosVisibles.size
 
     fun actualizarLista(nuevaLista: List<Producto>) {
-        productos = nuevaLista
+        productosVisibles = nuevaLista.toMutableList()
+        notifyDataSetChanged()
+    }
+
+    fun setListaOriginal(lista: List<Producto>) {
+        productosOriginales = lista.toMutableList()
+        productosVisibles = lista.toMutableList()
         notifyDataSetChanged()
     }
 
     fun obtenerSeleccionados(): List<Producto> {
-        return productos.filter { it.cantidad > 0 }
+        return productosOriginales.filter { it.cantidad > 0 }
     }
 }
+

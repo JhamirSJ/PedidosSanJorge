@@ -162,7 +162,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/borde_recuadro"
                 android:padding="8dp"
-                android:text="50.00"
+                android:text="0.00"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
         </LinearLayout>

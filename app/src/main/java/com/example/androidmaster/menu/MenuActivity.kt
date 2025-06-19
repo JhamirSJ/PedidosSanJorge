@@ -14,7 +14,8 @@ class MenuActivity : AppCompatActivity() {
         val btnRgPedidos = findViewById<AppCompatButton>(R.id.btnRgPedidos)
         btnRgPedidos.setOnClickListener { navigateToRgPedidos() }
     }
-    private fun navigateToRgPedidos(){
+
+    private fun navigateToRgPedidos() {
         val intent = Intent(this, RegPedidosActivity::class.java)
         startActivity(intent)
     }

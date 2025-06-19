@@ -10,35 +10,43 @@
     import com.example.androidmaster.R
 
     class ProductosViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val id: TextView = view.findViewById(R.id.tvIdProducto)
-        val nombre: TextView = view.findViewById(R.id.tvNombreProducto)
-        val cantidad: EditText = view.findViewById(R.id.etCantidad)
-        val btnMenos: Button = view.findViewById(R.id.btnMenos)
-        val btnMas: Button = view.findViewById(R.id.btnMas)
+
+        private val id: TextView = view.findViewById(R.id.tvIdProducto)
+        private val nombre: TextView = view.findViewById(R.id.tvNombreProducto)
+        private val cantidadEditText: EditText = view.findViewById(R.id.etCantidad)
+        private val btnMenos: Button = view.findViewById(R.id.btnMenos)
+        private val btnMas: Button = view.findViewById(R.id.btnMas)
+
+        private var watcher: TextWatcher? = null
 
         fun bind(producto: Producto) {
             id.text = producto.id
             nombre.text = producto.nombre
-            cantidad.setText(producto.cantidad.toString())
 
-            cantidad.addTextChangedListener(object : TextWatcher {
+            watcher?.let { cantidadEditText.removeTextChangedListener(it) }
+            cantidadEditText.setText(producto.cantidad.toString())
+
+            watcher = object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
-                    val cantidadNueva = s.toString().toIntOrNull() ?: 0
+                    val cantidadNueva = s?.toString()?.toIntOrNull() ?: 0
                     producto.cantidad = cantidadNueva
                 }
-
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-            })
+            }
+
+            cantidadEditText.addTextChangedListener(watcher)
 
             btnMas.setOnClickListener {
                 producto.cantidad++
-                cantidad.setText(producto.cantidad.toString())
+                cantidadEditText.setText(producto.cantidad.toString())
             }
 
             btnMenos.setOnClickListener {
-                if (producto.cantidad > 0) producto.cantidad--
-                cantidad.setText(producto.cantidad.toString())
+                if (producto.cantidad > 0) {
+                    producto.cantidad--
+                    cantidadEditText.setText(producto.cantidad.toString())
+                }
             }
         }
     }

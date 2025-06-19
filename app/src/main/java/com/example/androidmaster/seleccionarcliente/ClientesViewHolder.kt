@@ -19,5 +19,4 @@ class ClientesViewHolder(
             onClick(cliente)
         }
     }
-
 }

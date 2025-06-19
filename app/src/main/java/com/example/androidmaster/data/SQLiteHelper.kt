@@ -37,7 +37,9 @@ class SQLiteHelper(private val context: Context) {
         val lista = mutableListOf<Cliente>()
         val db = getReadableDatabase()
         val cursor = db.rawQuery(
-            "SELECT customers.altname, customers.custentity_pe_document_number, customeraddressbooks.label FROM customers JOIN customeraddressbooks ON customers.codid = customeraddressbooks.entity;", null)
+            "SELECT customers.altname, customers.custentity_pe_document_number, customeraddressbooks.label FROM customers JOIN customeraddressbooks ON customers.codid = customeraddressbooks.entity;",
+            null
+        )
 
         while (cursor.moveToNext()) {
             val nombre = cursor.getString(0)
@@ -54,12 +56,25 @@ class SQLiteHelper(private val context: Context) {
     fun obtenerProductos(): List<Producto> {
         val productos = mutableListOf<Producto>()
         val db = getReadableDatabase()
-        val cursor = db.rawQuery("SELECT itemid, displayname FROM item", null)
+        val cursor = db.rawQuery(
+            """
+            SELECT i.itemid, i.displayname, p.unitprice
+            FROM item i
+            JOIN pricing p ON i.codid = p.item
+            WHERE p.pricelevel = 2
+            """, null
+        )
 
         while (cursor.moveToNext()) {
             val id = cursor.getString(0)
             val nombre = cursor.getString(1)
-            productos.add(Producto(id = id, nombre = nombre, precio = 0.0)) // Asigna precio si lo tuvieras
+            productos.add(
+                Producto(
+                    id = id,
+                    nombre = nombre,
+                    precio = 0.0
+                )
+            ) // Asigna precio si lo tuvieras
         }
 
         cursor.close()
@@ -67,5 +82,4 @@ class SQLiteHelper(private val context: Context) {
 
         return productos
     }
-
 }
