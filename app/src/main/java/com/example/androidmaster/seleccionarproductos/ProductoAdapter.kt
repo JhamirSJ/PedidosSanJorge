@@ -5,18 +5,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidmaster.R
 
-class ProductosAdapter : RecyclerView.Adapter<ProductosViewHolder>() {
+class ProductoAdapter : RecyclerView.Adapter<ProductoViewHolder>() {
 
     private var productosOriginales: MutableList<Producto> = mutableListOf()
     private var productosVisibles: MutableList<Producto> = mutableListOf()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductosViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_producto, parent, false)
-        return ProductosViewHolder(view)
+        return ProductoViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ProductosViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductoViewHolder, position: Int) {
         val producto = productosVisibles[position]
         holder.bind(producto)
     }

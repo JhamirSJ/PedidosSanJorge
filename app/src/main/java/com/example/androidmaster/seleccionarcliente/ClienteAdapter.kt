@@ -6,17 +6,17 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidmaster.R
 
-class ClientesAdapter(
+class ClienteAdapter(
     private var clientes: List<Cliente>,
     private val onClick: (Cliente) -> Unit
-) : RecyclerView.Adapter<ClientesViewHolder>() {
+) : RecyclerView.Adapter<ClienteViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClientesViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClienteViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_cliente, parent, false)
-        return ClientesViewHolder(view, onClick)
+        return ClienteViewHolder(view, onClick)
     }
 
-    override fun onBindViewHolder(holder: ClientesViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ClienteViewHolder, position: Int) {
         holder.bind(clientes[position])
     }
 

@@ -5,7 +5,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidmaster.R
 
-class ClientesViewHolder(
+class ClienteViewHolder(
     view: View,
     private val onClick: (Cliente) -> Unit
 ) : RecyclerView.ViewHolder(view) {

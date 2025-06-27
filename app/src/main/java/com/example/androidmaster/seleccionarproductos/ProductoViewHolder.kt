@@ -9,7 +9,7 @@
     import androidx.recyclerview.widget.RecyclerView
     import com.example.androidmaster.R
 
-    class ProductosViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ProductoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val id: TextView = view.findViewById(R.id.tvIdProducto)
         private val nombre: TextView = view.findViewById(R.id.tvNombreProducto)

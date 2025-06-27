@@ -17,7 +17,7 @@ class SelecProductosActivity : AppCompatActivity() {
 
     private lateinit var rvProductos: RecyclerView
     private lateinit var etBuscar: EditText
-    private lateinit var productoAdapter: ProductosAdapter
+    private lateinit var productoAdapter: ProductoAdapter
 
     private var productos: List<Producto> = emptyList()
 
@@ -51,7 +51,7 @@ class SelecProductosActivity : AppCompatActivity() {
         }
 
         productosFiltrados = productos
-        productoAdapter = ProductosAdapter()
+        productoAdapter = ProductoAdapter()
         productoAdapter.setListaOriginal(productos)
         rvProductos.adapter = productoAdapter
     }

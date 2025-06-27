@@ -15,7 +15,7 @@
 
         private lateinit var rvCliente: RecyclerView
         private lateinit var sbCliente: EditText
-        private lateinit var clientesAdapter: ClientesAdapter
+        private lateinit var clientesAdapter: ClienteAdapter
 
         private var clientes: List<Cliente> = emptyList()
 
@@ -37,7 +37,7 @@
         }
 
         private fun initInterface(){
-            clientesAdapter = ClientesAdapter(clientes) { cliente ->
+            clientesAdapter = ClienteAdapter(clientes) { cliente ->
                 val resultIntent = Intent().apply {
                     putExtra("codigo", cliente.codigo)
                     putExtra("nombre", cliente.nombre)
